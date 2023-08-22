@@ -2,9 +2,9 @@
 namespace SiteSights.Tracking.Common;
 
 /// <summary>
-/// Representing instantiate options for SiteSightsTracking class
+/// Representing instantiate options for SiteSightsTracking class.
 /// </summary>
-public class SiteSightsTrackingOptions {
+public sealed class SiteSightsTrackingOptions {
 
     /// <summary>
     /// Default base url to make the REST API calls to
@@ -12,7 +12,7 @@ public class SiteSightsTrackingOptions {
     public const string DEFAULT_SITESIGHTS_URL = "https://app.sitesights.io";
 
     /// <summary>
-    /// Will be found on your sitesights.io dashboard under websites > edit website
+    /// Will be found on your sitesights.io dashboard under websites > edit website, do not share this anywhere in the frontend.
     /// </summary>
     public string ApiKey { get; set; }
 
