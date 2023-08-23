@@ -8,7 +8,7 @@ namespace SiteSights.Tracking.Common;
 /// It uses HttpClient with settings that allow you to keep objects of this class alive for the entirety of your programs/backends lifespan.
 /// You should keep instances of this class alive for the entirety of your program.
 /// </summary>
-public sealed class SiteSightsTracking : IDisposable {
+public sealed class SiteSightsTracking : IDisposable, ISiteSightsTracking {
 
     private const string RELATIVE_PAGE_VIEW = "/api/page-view";
 

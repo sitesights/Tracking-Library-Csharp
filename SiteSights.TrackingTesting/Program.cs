@@ -2,7 +2,7 @@
 using SiteSights.Tracking.Common;
 
 var tracking = new SiteSightsTracking(new SiteSightsTrackingOptions() {
-    ApiKey = "",
+    ApiKey = "[API_KEY]",
 });
 
 var resp = await tracking.PageView(new SiteSightsPageView() {
@@ -55,7 +55,7 @@ resp = await tracking.Event(new SiteSightsEvent() {
             UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0",
         },
         Identify = new SessionMetric() {
-            ClientId = "b",
+            ClientId = null,
         },
         Language = new LanguageMetric() {
             Code = "en",
@@ -64,7 +64,7 @@ resp = await tracking.Event(new SiteSightsEvent() {
             Absolute = "https://app.sitesights.io/analytics",
         },
         Referrer = new ReferrerMetric() {
-            Absolute = "https://app.sitesights.io",
+            Absolute = null,
         },
         Screen = new ScreenMetric() {
             Height = 200,
@@ -75,9 +75,9 @@ resp = await tracking.Event(new SiteSightsEvent() {
             CountryCode = "AF",
             City = "test",
             PostalCode = "33100",
-            Region = "test",
-            RegionCode = "te",
-            Timezone = "timezone",
+            Region = null,
+            RegionCode = null,
+            Timezone = null,
         }
     }
 });
