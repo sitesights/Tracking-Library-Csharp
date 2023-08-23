@@ -17,7 +17,7 @@ public sealed class SiteSightsTracking : IDisposable {
     /// <summary>
     /// Default http handler to use, taking dns refresh into account
     /// </summary>
-    private static SocketsHttpHandler DefaultHttpHandler = new() {
+    private static SocketsHttpHandler DefaultHttpHandler => new() {
         PooledConnectionIdleTimeout = TimeSpan.FromMinutes(1),
         PooledConnectionLifetime = TimeSpan.FromMinutes(5) // dns refresh
     };
