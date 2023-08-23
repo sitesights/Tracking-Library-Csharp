@@ -1,16 +1,23 @@
 ﻿
+using Newtonsoft.Json;
+
 namespace SiteSights.Tracking.Common;
 
 /// <summary>
 /// The main class that handles all of the tracking calls.
 /// It uses HttpClient with settings that allow you to keep objects of this class alive for the entirety of your programs/backends lifespan.
+/// You should keep instances of this class alive for the entirety of your program.
 /// </summary>
-public sealed class SiteSightsTracking {
+public sealed class SiteSightsTracking : IDisposable {
+
+    private const string RELATIVE_PAGE_VIEW = "/api/page-view";
+
+    private const string RELATIVE_EVENT = "/api/event-view";
 
     /// <summary>
     /// Default http handler to use, taking dns refresh into account
     /// </summary>
-    private static SocketsHttpHandler DefaultHttpHandler = new SocketsHttpHandler() {
+    private static SocketsHttpHandler DefaultHttpHandler = new() {
         PooledConnectionIdleTimeout = TimeSpan.FromMinutes(1),
         PooledConnectionLifetime = TimeSpan.FromMinutes(5) // dns refresh
     };
@@ -26,7 +33,18 @@ public sealed class SiteSightsTracking {
     private HttpClient Client { get; set; }
 
     /// <summary>
-    /// Instantiate tracking class, objects of this class can be alive for the entirety of your programs/backends lifespan.
+    /// Page view absolute url
+    /// </summary>
+    private string PageViewUrl { get; set; }
+
+    /// <summary>
+    /// Event absolute url
+    /// </summary>
+    private string EventUrl { get; set; }
+
+    /// <summary>
+    /// Instantiate tracking class, objects of this class should be alive for the entirety of your programs/backends lifespan, 
+    /// because of the internal use of a HttpClient per instance.
     /// </summary>
     /// <param name="options">Required options</param>
     public SiteSightsTracking(SiteSightsTrackingOptions options) {
@@ -35,6 +53,10 @@ public sealed class SiteSightsTracking {
         ValidateOptions();
 
         Client = new HttpClient(Options.HttpHandler);
+        Options.Url = Options.Url.TrimEnd('/');
+
+        PageViewUrl = Options.Url + RELATIVE_PAGE_VIEW;
+        EventUrl = Options.Url + RELATIVE_EVENT;
 
     }
 
@@ -45,7 +67,8 @@ public sealed class SiteSightsTracking {
     /// <returns>Api Response</returns>
     public async Task<SiteSightsApiResponse> PageView(SiteSightsPageView pageView) {
 
-        return null;
+        return await PostJson<SiteSightsPageView, SiteSightsApiResponse>(
+            PageViewUrl, pageView);
 
     }
 
@@ -56,7 +79,31 @@ public sealed class SiteSightsTracking {
     /// <returns>Api Response</returns>
     public async Task<SiteSightsApiResponse> Event(SiteSightsEvent evt) {
 
-        return null;
+        return await PostJson<SiteSightsEvent, SiteSightsApiResponse>(
+            EventUrl, evt);
+
+    }
+
+    private async Task<E> PostJson<T, E>(string url, T json) {
+
+        string jsonRaw = JsonConvert.SerializeObject(json);
+
+        using var request = new HttpRequestMessage(HttpMethod.Post, url);
+        using var content = new StringContent(jsonRaw, Encoding.UTF8, "application/json");
+
+        request.Content = content;
+        request.Headers.TryAddWithoutValidation("Authorization", Options.ApiKey);
+
+        var response = await Client.SendAsync(request);
+
+        if(response.Content != null) {
+
+            var respStr = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<E>(respStr);
+
+        }
+
+        return default;
 
     }
 
@@ -81,6 +128,15 @@ public sealed class SiteSightsTracking {
         if(Options.ApiKey == null) {
             throw new ArgumentException("SiteSights Options ApiKey is null.");
         }
+
+    }
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    public void Dispose() {
+        
+        Client?.Dispose();
 
     }
 

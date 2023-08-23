@@ -6,6 +6,9 @@ namespace SiteSights.Tracking.Common;
 /// </summary>
 public sealed class SiteSightsPageView {
 
-
+    /// <summary>
+    /// Metrics of visitor
+    /// </summary>
+    public ClientMetrics Metrics { get; set; }
 
 }
