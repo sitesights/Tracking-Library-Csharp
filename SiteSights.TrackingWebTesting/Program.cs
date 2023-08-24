@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// You should only use one instance for all of your application, due to httpclient being used internally
+// You should only use one instance per website api key for all of your application, due to httpclient being used internally
 builder.Services.AddSingleton<ISiteSightsTracking>(x => new SiteSightsTracking(
     new SiteSightsTrackingOptions() {
         ApiKey = "[API_KEY]",

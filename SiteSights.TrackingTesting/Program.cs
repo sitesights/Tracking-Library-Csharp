@@ -3,6 +3,7 @@ using SiteSights.Tracking.Common;
 
 var tracking = new SiteSightsTracking(new SiteSightsTrackingOptions() {
     ApiKey = "[API_KEY]",
+    HttpHandler = null
 });
 
 var resp = await tracking.PageView(new SiteSightsPageView() {
