@@ -12,12 +12,13 @@ namespace SiteSights.TrackingWebTesting.Controllers {
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, ISiteSightsTracking tracking) {
+
             _logger = logger;
             _tracking = tracking;
+
         }
 
         public async Task<IActionResult> Index() {
-
             return View();
         }
 
