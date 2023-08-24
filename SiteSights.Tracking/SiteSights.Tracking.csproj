@@ -4,7 +4,34 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>SiteSights Tracking - NET 7 and above</Title>
+    <Authors>Marvin Drude - SiteSights</Authors>
+    <Product>SiteSights Tracking - NET 7 and above</Product>
+    <Copyright>Marvin Drude - SiteSights</Copyright>
+    <PackageProjectUrl>https://github.com/sitesights</PackageProjectUrl>
+    <PackageIcon>118568354.png</PackageIcon>
+    <RepositoryUrl>https://github.com/sitesights/Tracking-Library-Csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Tracking, Privacy, Friendly</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\118568354.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
