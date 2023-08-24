@@ -2,7 +2,7 @@
 using SiteSights.Tracking.Common;
 
 var tracking = new SiteSightsTracking(new SiteSightsTrackingOptions() {
-    ApiKey = "[API_KEY]",
+    ApiKey = "MWBRfBhiwU2Srav4A_4Iog2oncYSt6mEWhkEXeMRp0_w",
 });
 
 var resp = await tracking.PageView(new SiteSightsPageView() {
