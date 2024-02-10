@@ -1,10 +1,10 @@
 ﻿
-namespace SiteSights.Tracking.Common;
+namespace SiteSights.Tracking.Models;
 
 /// <summary>
 /// Data object to represent api response
 /// </summary>
-public sealed class SiteSightsApiResponse {
+public sealed record SiteSightsApiResponse {
 
     /// <summary>
     /// 200 - Success, all other codes are failures, see https://docs.sitesights.io/server/endpoints for more
@@ -14,6 +14,6 @@ public sealed class SiteSightsApiResponse {
     /// <summary>
     /// Short description of success or why it failed.
     /// </summary>
-    public string Message { get; set; }
+    public required string Message { get; set; }
 
 }

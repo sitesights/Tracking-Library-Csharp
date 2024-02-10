@@ -9,6 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSights.TrackingTesting"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSights.TrackingWebTesting", "SiteSights.TrackingWebTesting\SiteSights.TrackingWebTesting.csproj", "{0812F66B-89E2-4D63-B384-4995D68BF7B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSights.Tracking.Tests", "SiteSights.Tracking.Tests\SiteSights.Tracking.Tests.csproj", "{5AFB4511-BD89-4271-AD17-F18F9F7085FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{F02129E8-CE1A-4225-90BB-B58391F301BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{4107D3FA-EC05-4CC0-8829-516435590B79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{9C91A3F1-443B-43D7-8ED3-8080C7D23F30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +35,21 @@ Global
 		{0812F66B-89E2-4D63-B384-4995D68BF7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0812F66B-89E2-4D63-B384-4995D68BF7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0812F66B-89E2-4D63-B384-4995D68BF7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFB4511-BD89-4271-AD17-F18F9F7085FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFB4511-BD89-4271-AD17-F18F9F7085FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFB4511-BD89-4271-AD17-F18F9F7085FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFB4511-BD89-4271-AD17-F18F9F7085FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5250216-1EA7-4459-8661-4239EBA2C107}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF73955A-EF0C-4228-928A-AAF3A67B433E} = {4107D3FA-EC05-4CC0-8829-516435590B79}
+		{5AFB4511-BD89-4271-AD17-F18F9F7085FA} = {4107D3FA-EC05-4CC0-8829-516435590B79}
+		{CBB5925F-D051-4AE3-A70D-323CA67B990A} = {9C91A3F1-443B-43D7-8ED3-8080C7D23F30}
+		{0812F66B-89E2-4D63-B384-4995D68BF7B3} = {9C91A3F1-443B-43D7-8ED3-8080C7D23F30}
 	EndGlobalSection
 EndGlobal
