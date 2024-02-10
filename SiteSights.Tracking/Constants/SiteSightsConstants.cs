@@ -8,7 +8,7 @@ public static class SiteSightsConstants
     /// <summary>
     /// Default base url to make the REST API calls to SiteSights.
     /// </summary>
-    public const string DefaultSiteSightsUrl = "https://app.sitesights.io";
+    public const string DefaultSiteSightsUrl = "https://app.sitesights.de";
     
     /// <summary>
     /// The relative path to the page view endpoint.

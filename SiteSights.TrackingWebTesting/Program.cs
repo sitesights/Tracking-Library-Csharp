@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<SiteSightsTrackingOptions>(options =>
 {
     options.ApiKey = "YOUR_API_KEY"; // Required: Will be found on your sitesights.io dashboard under websites > edit website, do not share this anywhere in the frontend.
-    // Optional: options.Url = "https://app.sitesights.io"; // Default value, currently SiteSights only supports this url
+    // Optional: options.Url = "https://app.sitesights.de"; // Default value, currently SiteSights only supports this url
 });
 
 // Register the SiteSightsTracking service with the specified ServiceLifetime
