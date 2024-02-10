@@ -1,10 +1,19 @@
 ﻿
 using SiteSights.Tracking.Common;
+using SiteSights.Tracking.Models;
+using SiteSights.Tracking.Options;
 
-var tracking = new SiteSightsTracking(new SiteSightsTrackingOptions() {
-    ApiKey = "[API_KEY]",
-    HttpHandler = null
-});
+// In a read-world scenario, you would use a cached HttpClient instance or one from a HttpClientFactory
+var httpClient = new HttpClient();
+
+var options = new SiteSightsTrackingOptions
+{
+    ApiKey = "YOUR_API_KEY",
+};
+        
+var iOptions = Microsoft.Extensions.Options.Options.Create(options);
+
+var tracking = new SiteSightsTracking(iOptions, httpClient);
 
 var resp = await tracking.PageView(new SiteSightsPageView() {
     Metrics = new ClientMetrics() {

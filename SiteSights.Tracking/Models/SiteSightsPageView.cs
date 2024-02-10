@@ -1,14 +1,14 @@
 ﻿
-namespace SiteSights.Tracking.Common;
+namespace SiteSights.Tracking.Models;
 
 /// <summary>
 /// Data object to represent page view request body
 /// </summary>
-public sealed class SiteSightsPageView {
+public sealed record SiteSightsPageView {
 
     /// <summary>
     /// Metrics of visitor
     /// </summary>
-    public ClientMetrics Metrics { get; set; }
+    public required ClientMetrics Metrics { get; set; }
 
 }

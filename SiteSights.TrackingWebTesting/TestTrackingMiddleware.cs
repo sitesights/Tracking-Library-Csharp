@@ -1,4 +1,4 @@
-﻿using SiteSights.Tracking.Common;
+﻿using SiteSights.Tracking.Contracts;
 
 namespace SiteSights.TrackingWebTesting;
 

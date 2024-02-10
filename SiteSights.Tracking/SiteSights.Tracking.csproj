@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>SiteSights Tracking - NET 7 and above</Title>
+    <Title>SiteSights Tracking - NET 8 and above</Title>
     <Authors>Marvin Drude - SiteSights</Authors>
-    <Product>SiteSights Tracking - NET 7 and above</Product>
+    <Product>SiteSights Tracking - NET 8 and above</Product>
     <Copyright>Marvin Drude - SiteSights</Copyright>
     <PackageProjectUrl>https://github.com/sitesights</PackageProjectUrl>
     <PackageIcon>118568354.png</PackageIcon>
@@ -18,11 +18,15 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Downloads\118568354.png">
+    <None Include="Resources\118568354.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -37,9 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
